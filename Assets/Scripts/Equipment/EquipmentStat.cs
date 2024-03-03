@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EquipmentStat : MonoBehaviour
 {
+    [SerializeField]
     private EquipmentScriptable equipmentBase;
 
     public float damage;
@@ -12,5 +13,10 @@ public class EquipmentStat : MonoBehaviour
     {
         damage = equipmentBase.damage;
         equipmentName = equipmentBase.equipmentName;
+    }
+
+    public void Init(EquipmentMain equipmentMain)
+    {
+        equipmentMain.equipmentStat = this;
     }
 }
