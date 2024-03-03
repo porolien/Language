@@ -43,9 +43,9 @@
                 },
                 {
                     "name": "Potion",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "fbd08ce7-45fe-4c50-bc46-ec66980941a7",
-                    "expectedControlType": "",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true

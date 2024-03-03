@@ -13,14 +13,13 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnMove(InputValue _value)
     {
-        Debug.Log("onmove");
         _main.playerMovement.direction = _value.Get<Vector3>();        
     }
 
     public void OnAttack()
     {
-        Debug.Log("inoput");
         _main.playerAttack.Attack();
+        _main.playerStats.CallDamage(10);
     }
 
     public void OnDash()
@@ -30,7 +29,7 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnPotion()
     {
-
+        _main.playerStats.CallRegen(5);
     }
 
     public void OnMenu()
