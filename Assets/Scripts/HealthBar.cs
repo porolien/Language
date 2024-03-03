@@ -17,7 +17,6 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //tweenCurve = AnimationCurve.EaseInOut(0.7f, 0f, 0.84f, 0f);
 
         frontHealthImage.fillAmount = Mathf.InverseLerp(0, main.bossStats.maxHP, main.bossStats.currentHP);
         backHealthImage.fillAmount = Mathf.InverseLerp(0, main.bossStats.maxHP, main.bossStats.currentHP);
@@ -40,7 +39,5 @@ public class HealthBar : MonoBehaviour
             .AppendInterval(0.5f)
             .Append(backHealthImage.DOFillAmount(targetFillAmount, tweenDuration).SetEase(Ease.OutQuad)
             );
-        //frontHealthImage.DOFillAmount(targetFillAmount, tweenDuration);
-            //.SetEase(tweenCurve);
     }
 }

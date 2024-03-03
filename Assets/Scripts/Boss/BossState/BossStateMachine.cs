@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossStateMachine : MonoBehaviour
@@ -16,15 +17,20 @@ public class BossStateMachine : MonoBehaviour
     public TornadoState tornadoState;
     public DualWeaponsProjectionState dualWeaponsProjectionState;
 
+    public GameObject playerMain;
+    public float distanceMax;
+
     public void Init(BossMain main)
     {
         bossMain = main;
         main.bossStateMachine = this;
+        playerMain = FindAnyObjectByType(typeof(PlayerMain)).GetComponent<PlayerMain>().gameObject;
     }
 
     // Start is called before the first frame update
     void Awake()
     {
+
         idleState = new IdleState();
         walkState = new WalkState();
         rightAttackState = new RightAttackState();
@@ -33,6 +39,7 @@ public class BossStateMachine : MonoBehaviour
         upgradedHealState = new UpgradedHealState();
         tornadoState = new TornadoState();
         dualWeaponsProjectionState = new DualWeaponsProjectionState();
+        Transition(idleState);
     }
 
     // Update is called once per frame
