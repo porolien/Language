@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,17 @@ using UnityEngine;
 public class BossCollision : MonoBehaviour
 {
     public BossMain bossMain;
+    public event Action<float> damage;
 
 
     public void Init(BossMain main)
     {
         bossMain = main;
+        main.bossCollision = this;
     }
 
     private void OnTriggerEnter(Collider collision)
     {
-        bossMain.bossStats.currentHP -= collision.GetComponent<EquipmentMain>().equipmentStat.damage;
+        damage(collision.GetComponent<EquipmentMain>().equipmentStat.damage);
     }
 }

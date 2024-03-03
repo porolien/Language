@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c42f5ce5c3d7e40914af9008dd37a3, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
-  maxHP: 500
+  maxHP: 100
   damage: 20
   defense: 20
