@@ -47,7 +47,7 @@ public class PlayerAnim : MonoBehaviour
 
     public void SetToFalse()
     {
-        animator.SetBool(currentAnim, false);  
+       // animator.SetBool(currentAnim, false);  
     }
 
 }
