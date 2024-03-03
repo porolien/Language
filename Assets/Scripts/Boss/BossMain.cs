@@ -29,8 +29,6 @@ fonction pour bouger le boss (script de déplacement)
 
 
 
-
-
 STATS (déclarer les stats dans des variables + les fonctions pour les gérer)
 barre de vie
 mouvements
