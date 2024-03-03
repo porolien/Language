@@ -13,8 +13,8 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnMove(InputValue _value)
     {
-        _main.playerMovement.direction = _value.Get<Vector3>();
-
+        Debug.Log("onmove");
+        _main.playerMovement.direction = _value.Get<Vector3>();        
     }
 
     public void OnAttack()
