@@ -29,15 +29,14 @@ public class RightAttackState : BaseBossState
     public void checkForTransition()
     {
         randomDecision = Random.Range(0, 100);
-        randomDecision = 90;
         if(randomDecision < 80)
         {
             _stateMachine.Transition(_stateMachine.leftAttackState);
         }
         else
         {
-            _stateMachine.walkState.nextState = _stateMachine.idleState;
             _stateMachine.walkState.idealRange = 10f;
+            _stateMachine.walkState.nextState = _stateMachine.idleState;
             _stateMachine.Transition(_stateMachine.walkState);
         }
 

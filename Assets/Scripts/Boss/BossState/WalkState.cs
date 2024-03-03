@@ -18,18 +18,7 @@ public class WalkState : BaseBossState
         _stateMachine = stateMachine;
         _speed = 10f;
         meleeRange = 2f;
-        // Si loin du joueur -> Se déplace en direction du joueur
-        // Et inversement
-        Debug.Log("next state : " + nextState);
-        if(nextState == _stateMachine.rightAttackState )
-        {
-            idealRange = meleeRange;
-            RunForward();
-        }
-        else
-        {
-            RunAway();
-        }
+        idealRange = 10f;
     }
 
     public override void OnExit()
@@ -40,16 +29,32 @@ public class WalkState : BaseBossState
     public override void Update()
     {
         distance = Vector3.Distance(_stateMachine.playerMain.transform.position, _stateMachine.bossMain.transform.position);
-
-        if(distance > idealRange)
+        if (nextState == _stateMachine.rightAttackState)
         {
-            _stateMachine.transform.Translate(_direction * _speed * Time.deltaTime);
+            idealRange = meleeRange;
+            RunForward();
+            if (distance > idealRange)
+            {
+                _stateMachine.transform.Translate(_direction * _speed * Time.deltaTime);
+            }
+            else
+            {
+                CheckForTransition();
+            }
         }
         else
         {
-            CheckForTransition();
+            RunAway();
+            if(distance < idealRange)
+            {
+                _stateMachine.transform.Translate(_direction * _speed * Time.deltaTime);
+            }
+            else
+            {
+                CheckForTransition();
+            }
         }
-        //Debug.Log("IN UPDATE, direction is " + _direction + " speed is " + _speed);        
+ 
     }
 
     public void CheckForTransition()
