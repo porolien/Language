@@ -56,7 +56,7 @@ public class BossStats : MonoBehaviour
         }
     }
 
-    private void RegenLife(float lifeGain)
+    public void RegenLife(float lifeGain)
     {
         bossMain.bossStats.currentHP += lifeGain;
     }

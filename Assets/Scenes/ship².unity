@@ -2028,6 +2028,26 @@ PrefabInstance:
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 2008205588}
+    - target: {fileID: 3704795217229313199, guid: 843a2d8325575cc40989a672672d9f83,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.1114007
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704795217229313199, guid: 843a2d8325575cc40989a672672d9f83,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 1.222208
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704795217229313199, guid: 843a2d8325575cc40989a672672d9f83,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.43296403
+      objectReference: {fileID: 0}
+    - target: {fileID: 3704795217229313199, guid: 843a2d8325575cc40989a672672d9f83,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 1.1404471
+      objectReference: {fileID: 0}
     - target: {fileID: 4201770778222865670, guid: 843a2d8325575cc40989a672672d9f83,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2168,7 +2188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 793c8d3d6bc820348b5a11d1470abe25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 2008205583}
   _animRunSides: RunSides
   _animRunForward: RunForward
   _animRunBackward: RunBackward

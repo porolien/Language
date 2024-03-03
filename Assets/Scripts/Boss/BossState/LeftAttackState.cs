@@ -29,8 +29,7 @@ public class LeftAttackState : BaseBossState
     public void checkForTransition()
     {
         randomDecision = Random.Range(0, 100);
-        randomDecision = 90;
-        if (randomDecision < 50)
+        if (randomDecision < 60)
         {
             _stateMachine.Transition(_stateMachine.dualWeaponsProjectionState);
         }
