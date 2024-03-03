@@ -10,7 +10,11 @@ public class BossStats : MonoBehaviour
     private float defense;
     public BossScriptable scriptable;
 
-    // Start is called before the first frame update
+    public void Init(BossMain main)
+    {
+        main.bossStats = this;
+    }
+
     void Awake()
     {
         maxHP = scriptable.maxHP;
