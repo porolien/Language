@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
-    private float maxHp;
-    private float currentHp;
-    private float defence;
-    private float attack;
+    private float _maxHp;
+    private float _currentHp;
+    private float _defence;
+
+    private EquipmentMain _equipment;
     // ajouter un équipement
 
     // Start is called before the first frame update
@@ -20,5 +21,10 @@ public class PlayerStats : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeItem(EquipmentMain newEquipment)
+    {
+        _equipment = newEquipment;
     }
 }

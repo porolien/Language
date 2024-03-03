@@ -19,7 +19,8 @@ public class PlayerInputs : MonoBehaviour
 
     public void OnAttack()
     {
-
+        Debug.Log("inoput");
+        _main.playerAttack.Attack();
     }
 
     public void OnDash()

@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject sword;
+    private EquipmentAnimation equipmentAnim;
+    private Animator animator;
+
+
+    public void Init(PlayerMain main)
     {
-        
+        main.playerAttack = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Attack()
     {
-        
+        Debug.Log("attakc");
+        if (animator == null)
+        {
+            animator = sword.GetComponent<Animator>();
+        }
+
+        if (equipmentAnim == null)
+        {
+            equipmentAnim = sword.GetComponent<EquipmentAnimation>();
+        }
+
+        if (animator.GetBool("PlayerAttacked") == false)
+        {
+            Debug.Log("allgood");
+            equipmentAnim.SetAttackToTrue();
+        }
     }
 }
