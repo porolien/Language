@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class EquipmentStat : MonoBehaviour
@@ -19,4 +20,5 @@ public class EquipmentStat : MonoBehaviour
     {
         equipmentMain.equipmentStat = this;
     }
+
 }
