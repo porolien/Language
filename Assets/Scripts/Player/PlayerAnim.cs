@@ -4,22 +4,50 @@ using UnityEngine;
 
 public class PlayerAnim : MonoBehaviour
 {
-    private Animator animator;
+    public Animator animator;
 
-    private string _animRunSides;
-    private string _animRunForward;
-    private string _animRunBackward;
-    private string idleSides;
-    private string idleForward;
-    private string idleBackWard;
-    private string attackSides;
-    private string attackForward;
-    private string attckBackWard;
+    public string _animRunSides;
+    public string _animRunForward;
+    public string _animRunBackward;
+    public string idleSides;
+    public string idleForward;
+    public string idleBackWard;
+    public string attackSides;
+    public string attackForward;
+    public string attckBackWard;
+
+    public string currentAnim;
 
     public void Init(PlayerMain main)
     {
         main.playerAnim = this;
     }
 
+    public void SetAnimToFalse(string animName)
+    {
+        if (animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        animator.SetBool(animName, false);
+    }
+
+    public void SetAnimToTrue(string animName)
+    {
+        if(animator == null)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+        animator.SetBool(animName, true);
+        SetToFalse();
+        currentAnim = animName;
+    }
+
+    public void SetToFalse()
+    {
+       // animator.SetBool(currentAnim, false);  
+    }
 
 }

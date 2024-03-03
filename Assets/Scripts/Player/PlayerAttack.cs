@@ -14,7 +14,6 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("attakc");
         if (animator == null)
         {
             animator = sword.GetComponent<Animator>();
@@ -27,7 +26,6 @@ public class PlayerAttack : MonoBehaviour
 
         if (animator.GetBool("PlayerAttacked") == false)
         {
-            Debug.Log("allgood");
             equipmentAnim.SetAttackToTrue();
         }
     }

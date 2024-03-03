@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Vector3 direction;
 
+    private Vector3 oldDirection;
+
     [Header ("Dash Settings")]
 
     [SerializeField]
@@ -58,6 +60,49 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             transform.Translate(direction * speed * Time.deltaTime);
+
+            if (oldDirection != direction)
+            {
+                oldDirection = direction;
+                if (direction.x == 0)
+                {
+                    if (direction.z < 0)
+                    {
+                        //_main.playerAnim.SetAnimToTrue(_main.playerAnim._animRunBackward);
+                        SetAnim(_main.playerAnim._animRunBackward);
+                        // _main.playerAnim.animator.SetBool(_main.playerAnim._animRunBackward, true);
+                    }
+                    else if (direction.z > 0) 
+                    {
+                       // _main.playerAnim.SetAnimToTrue(_main.playerAnim._animRunForward);
+                        SetAnim(_main.playerAnim._animRunForward);
+                        // _main.playerAnim.animator.SetBool(_main.playerAnim._animRunForward, true);
+                    }
+                }
+                else
+                {
+                    //_main.playerAnim.SetAnimToTrue(_main.playerAnim._animRunSides);
+                    SetAnim(_main.playerAnim._animRunSides);
+                    if (direction.x < 0)
+                    {
+                        GetComponent<SpriteRenderer>().flipX = true;
+                        //_main.playerAnim.animator.SetBool(_main.playerAnim._animRunSides, true);
+                    }
+                    else
+                    {
+                        GetComponent<SpriteRenderer>().flipX = false;
+                        //_main.playerAnim.animator.SetBool(_main.playerAnim._animRunForward, true);
+                    }
+                }
+            }
+        }
+    }
+
+    private void SetAnim(string animName)
+    {
+        if(_main.playerAnim.currentAnim != animName)
+        {
+            _main.playerAnim.SetAnimToTrue(animName);
         }
     }
 

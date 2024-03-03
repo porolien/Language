@@ -10,6 +10,9 @@ public class PlayerMain : MonoBehaviour
     public PlayerAttack playerAttack;
     public PlayerAnim playerAnim;
     public CharacterController controller;
+    public HealthBar healthBar;
+    public PlayerStats playerStats;
+
     // Start is called before the first frame update
     void Awake()
     {
