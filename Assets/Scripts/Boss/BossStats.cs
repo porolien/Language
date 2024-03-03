@@ -8,6 +8,8 @@ public class BossStats : MonoBehaviour
     public float currentHP;
     private float damage;
     private float defense;
+    public float percentHP;
+    private bool isDead;
     public BossScriptable scriptable;
     private BossMain bossMain;
 
@@ -23,6 +25,8 @@ public class BossStats : MonoBehaviour
         currentHP = scriptable.maxHP;
         damage = scriptable.damage;
         defense = scriptable.defense;
+        percentHP = currentHP / maxHP * 100;
+        isDead = false;
     }
 
     private void Start()
@@ -32,10 +36,17 @@ public class BossStats : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
-        bossMain.bossStats.currentHP -= damage;
-        if(bossMain.bossStats.currentHP < 0)
+        if(bossMain.bossStats.isDead == false)
         {
-            Debug.Log("Aller hop le boss");
+            bossMain.bossStats.currentHP -= damage;
+            bossMain.bossStats.percentHP = bossMain.bossStats.currentHP / bossMain.bossStats.maxHP * 100;
+            Debug.Log(bossMain.bossStats.percentHP);
+            if (bossMain.bossStats.currentHP <= 0)
+            {
+                bossMain.bossStats.isDead = true;
+                Debug.Log("Aller hop le boss");
+            }
         }
+
     }
 }

@@ -30,7 +30,6 @@ public class HealthBar : MonoBehaviour
 
     public void InitHealthBar()
     {
-        //tweenCurve = AnimationCurve.EaseInOut(0.7f, 0f, 0.84f, 0f);
 
         frontHealthImage.fillAmount = Mathf.InverseLerp(0, maxHp, currentHp);
         backHealthImage.fillAmount = Mathf.InverseLerp(0, maxHp, currentHp);
@@ -54,8 +53,6 @@ public class HealthBar : MonoBehaviour
             .AppendInterval(0.5f)
             .Append(backHealthImage.DOFillAmount(targetFillAmount, tweenDuration).SetEase(Ease.OutQuad)
             );
-        //frontHealthImage.DOFillAmount(targetFillAmount, tweenDuration);
-            //.SetEase(tweenCurve);
     }
 
     public void OnHealthGain(float healthGain)

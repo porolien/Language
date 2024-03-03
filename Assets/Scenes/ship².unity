@@ -222,7 +222,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 361393295}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1414343791}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80053f32e379fa94a93d241ab2475861, type: 3}
@@ -240,7 +240,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 361393295}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1414343791}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e29f16ffc650ae40bfb79af5e219bc8, type: 3}
@@ -252,7 +252,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 361393295}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1414343791}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef4204d1c55cbc84798a1da6a2c75db3, type: 3}
@@ -670,6 +670,12 @@ MonoBehaviour:
   main: {fileID: 1493916617}
   frontHealthImage: {fileID: 1816776905}
   backHealthImage: {fileID: 1223765633}
+--- !u!1 &1414343791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2028433249790178147, guid: 843a2d8325575cc40989a672672d9f83,
+    type: 3}
+  m_PrefabInstance: {fileID: 361393295}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493916610
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +692,7 @@ GameObject:
   - component: {fileID: 1493916616}
   - component: {fileID: 1493916617}
   - component: {fileID: 1493916618}
+  - component: {fileID: 1493916619}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -707,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 0
   currentHP: 0
+  percentHP: 0
   scriptable: {fileID: 11400000, guid: 59c0718ed6c62f94aa1a115f5bc2823c, type: 2}
 --- !u!136 &1493916612
 CapsuleCollider:
@@ -790,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 1493916610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4.15}
+  m_LocalPosition: {x: 0, y: 0, z: 12.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -821,7 +829,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!114 &1493916617
 MonoBehaviour:
@@ -835,8 +843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca041995da0f21b45a89d4dcde9ea14e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossStats: {fileID: 0}
-  bossCollision: {fileID: 0}
+  bossStats: {fileID: 1493916611}
+  bossCollision: {fileID: 1493916618}
+  bossStateMachine: {fileID: 0}
 --- !u!114 &1493916618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,6 +859,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossMain: {fileID: 1493916617}
+--- !u!114 &1493916619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493916610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf7db4cfa590e084da360b34d8c9602a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossMain: {fileID: 1493916617}
+  playerMain: {fileID: 1414343791}
+  distanceMax: 2
 --- !u!1 &1816776903
 GameObject:
   m_ObjectHideFlags: 0
