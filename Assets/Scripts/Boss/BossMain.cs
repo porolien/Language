@@ -6,6 +6,7 @@ public class BossMain : MonoBehaviour
 {
     public BossStats bossStats;
     public BossCollision bossCollision;
+    public BossStateMachine bossStateMachine;
 
     // Start is called before the first frame update
     void Awake()
@@ -17,7 +18,6 @@ public class BossMain : MonoBehaviour
 
 
 /*
-Ajouter une fonction quand les hp <= 0
 A une action où il se heal, le joueur doit le bourrer pour arrêter la regen
 Autre action où il se met à tourner avec ses lames + il se regen
 le joueur doit faire une action en particulier pour l'arreter
