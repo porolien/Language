@@ -20,7 +20,7 @@ public class WalkState : BaseBossState
         meleeRange = 2f;
         // Si loin du joueur -> Se déplace en direction du joueur
         // Et inversement
-        Debug.Log("next state : " + nextState);
+        //Debug.Log("next state : " + nextState);
         if(nextState == _stateMachine.rightAttackState )
         {
             idealRange = meleeRange;
@@ -40,8 +40,15 @@ public class WalkState : BaseBossState
     public override void Update()
     {
         distance = Vector3.Distance(_stateMachine.playerMain.transform.position, _stateMachine.bossMain.transform.position);
-
-        if(distance > idealRange)
+        if (nextState == _stateMachine.rightAttackState)
+        {
+            RunForward();
+        }
+        else
+        {
+            RunAway();
+        }
+        if (distance > idealRange)
         {
             _stateMachine.transform.Translate(_direction * _speed * Time.deltaTime);
         }

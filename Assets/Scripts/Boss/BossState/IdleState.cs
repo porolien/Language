@@ -30,7 +30,6 @@ public class IdleState : BaseBossState
     {
         distance = Vector3.Distance(_stateMachine.playerMain.transform.position, _stateMachine.bossMain.transform.position);
         randomDecision = Random.Range(0, 100);
-        Debug.Log(distance);
         randomDecision = 20;
         if (distance >= _stateMachine.distanceMax)
         {
@@ -105,7 +104,6 @@ public class IdleState : BaseBossState
             }
             else
             {
-                Debug.Log("HP < 75%, random decision is " + randomDecision);
                 if(randomDecision < 75)
                 {
                     // Deplacement
