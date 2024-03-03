@@ -107,7 +107,6 @@ public class IdleState : BaseBossState
                 if(randomDecision < 75)
                 {
                     // Deplacement
-                    Debug.Log("start walk from idle");
                     _stateMachine.walkState.nextState = _stateMachine.rightAttackState;
                     _stateMachine.Transition(_stateMachine.walkState);
                 }
