@@ -19,7 +19,7 @@ public class PlayerInputs : MonoBehaviour
     public void OnAttack()
     {
         _main.playerAttack.Attack();
-        _main.playerStats.CallDamage(10);
+        //_main.playerStats.CallDamage(10);
     }
 
     public void OnDash()

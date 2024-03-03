@@ -17,6 +17,10 @@ public class BossCollision : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        damage(collision.GetComponent<EquipmentMain>().equipmentStat.damage);
+        if (collision.tag == "Equipment")
+        {
+            damage(collision.GetComponent<EquipmentMain>().equipmentStat.damage);
+        }
+       
     }
 }

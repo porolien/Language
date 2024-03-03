@@ -7,7 +7,7 @@ public class BossMain : MonoBehaviour
     public BossStats bossStats;
     public BossCollision bossCollision;
     public BossStateMachine bossStateMachine;
-    public HealthBar healthBar;
+    public HealthBar healthBar;    
 
     // Start is called before the first frame update
     void Awake()

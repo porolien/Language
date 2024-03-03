@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class BossStats : MonoBehaviour
     private bool isDead;
     public BossScriptable scriptable;
     private BossMain bossMain;
+    public event Action<float> gainLife;
 
     public void Init(BossMain main)
     {
@@ -31,7 +33,13 @@ public class BossStats : MonoBehaviour
 
     private void Start()
     {
+        bossMain.healthBar.maxHp = maxHP;
+        bossMain.healthBar.currentHp = currentHP;
+
+        bossMain.bossCollision.damage += bossMain.healthBar.OnTakeDamage;
         bossMain.bossCollision.damage += TakeDamage;
+        gainLife += bossMain.healthBar.OnHealthGain;
+        gainLife += RegenLife;
     }
 
     private void TakeDamage(float damage)
@@ -40,13 +48,16 @@ public class BossStats : MonoBehaviour
         {
             bossMain.bossStats.currentHP -= damage;
             bossMain.bossStats.percentHP = bossMain.bossStats.currentHP / bossMain.bossStats.maxHP * 100;
-            Debug.Log(bossMain.bossStats.percentHP);
             if (bossMain.bossStats.currentHP <= 0)
             {
                 bossMain.bossStats.isDead = true;
                 Debug.Log("Aller hop le boss");
             }
         }
+    }
 
+    private void RegenLife(float lifeGain)
+    {
+        bossMain.bossStats.currentHP += lifeGain;
     }
 }
